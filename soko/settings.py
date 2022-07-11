@@ -1,6 +1,8 @@
 from pathlib import Path
 from decouple import config
 import os
+import dj_database_url
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,11 +33,9 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'tinymce',
-
-    "cart",
-    
+    'cart',
+    'django_countries',
     'django.contrib.sites',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 ]
 SITE_ID = 1
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -76,39 +77,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'soko.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'esoko',
-#         'USER': 'flo',
-#         'PASSWORD': 'flo',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'sokoh',
-#         'USER': 'moringa',
-#         'PASSWORD': 'Access',
-#         'HOST': 'localhost',
-#         'PORT': '',
-
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'esokoo',
+        'USER': 'moringa',
+        'PASSWORD': 'esokoo',
     }
 }
-
 
 AUTHENTICATION_BACKENDS = [
     
@@ -186,7 +164,7 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 CRISPY_TEMPLATE_PACK ="bootstrap4" 
-
+LOGIN_URL='/login/'
 LOGIN_REDIRECT_URL ="home"
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -194,11 +172,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # For each OAuth based provider, either add a ``SocialApp``
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
-        'APP': {
-            'client_id': '1095415596020-pduft037kf8rffbah51s7dd51ae8niga.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
+    
     }
     }
 
+django_on_heroku.settings(locals())

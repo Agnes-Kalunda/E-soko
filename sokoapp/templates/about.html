@@ -8,16 +8,16 @@
             <div class="pattern-layer"></div>
             <div class="auto-container">
                 <div class="content-box text-center">
-                    <h1>About Us</h1>
+                    <h1><span style="font-size:45px; color:red; font-weight:bold; font-family: 'Roboto', sans-serif;">About</span> Us</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><i class="fa-solid fa-house"></i><a   style="text-decoration:none;"  href="{% url 'home'  %}">Home</a></li>
-                        <li>About Us</li>
+                        <li><i class="fa-solid fa-house"></i><a   style="text-decoration:none; color:black; font-weight:bold;"  href="{% url 'home'  %}">Home</a></li>
+                        <li style="color:black;">About Us</li>
                     </ul>
                 </div>
             </div>
         </section>
         <!--title-->
-        <br><br><br>
+        <br><br> <hr><br>
         <!-- about-->
         <section class="about-section">
             <div class="auto-container">
@@ -28,7 +28,7 @@
                             <h3>Secure Checkout</h3>
                             <p>Excepteur sint occaecat cupidat non proident sunt in culpa qui officia deserunt mollit anim est laborum.</p>
                             <p>accusan enim ipsam voluptam quia voluptas sit aspern odit aut.</p>
-                            <a href="contact.html" class="btn2">Contact Us<i class="flaticon-right-1"></i></a>
+                            <a href="#contact" class="btn2">Contact Us<i class="fa-solid fa-circle-arrow-up-right"></i> </a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 image-column">
@@ -47,7 +47,7 @@
                             </div>
                                 <div class="box">
                                 <h4>Core Values</h4>
-                                <P>Transparency | ,,,,,,,,,,,,,,</P>
+                                <P>Transparency | Accountability | Value-centricity | Simpicity | Trust</P>
                         
                             </div>
                         </div>
@@ -58,10 +58,10 @@
         <!-- about end -->
 <br><br><br><br>
         <!-- chooseus -->
-        <section class="chooseus-section">
+        <section class="chooseus-section" id="image-column">
             <div class="outer-container clearfix">
                 <div class="content-column" >
-                    <div class="inner-column">
+                    <div class="inner-column" id="content-column" >
                         <div class="content-box"style="border: 1px solid white;background-color:#fff;margin-right:5px;padding:20px;">
                             <div class="sec-title style-two">
                                 <h2 class="fw-bold">Top Services Category</h2>
@@ -69,7 +69,7 @@
                                  <span><img src="{% static 'images/s3.png' %}" alt="" /></span> 
                             </div>
                             <br>
-                            <div class="inner-box"                 <div class="content-box"style="border: 1px solid grey;background-color:#fff;border-radius:5px;padding:20px;">
+                            <div class="inner-box" style="border: 1px solid gray; padding-top:20px;padding-left:10px;border-radius:5px;" >
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                         <div class="single-item wow fadeInLeft animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="image-column" id="image-column"></div> 
+                <div class="image-column" id="image-colum"></div> 
             </div>
         </section>
         <!-- chooseus end -->
@@ -246,5 +246,7 @@
                 </div>
             </div>
         </section>
+
         <!-- instagram-style-two -->
+
 {% endblock %}
